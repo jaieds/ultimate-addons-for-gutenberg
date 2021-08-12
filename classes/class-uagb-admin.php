@@ -656,7 +656,7 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 
 			$current_screen = get_current_screen();
 
-			if ( $current_screen && 'settings_page_uag-tools' !== $current_screen->id ) {
+			if ( ! isset( $current_screen ) || $current_screen && 'settings_page_uag-tools' !== $current_screen->id ) {
 				return;
 			}
 
