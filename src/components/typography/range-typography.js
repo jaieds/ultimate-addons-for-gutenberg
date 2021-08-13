@@ -4,7 +4,7 @@
 import { __ } from "@wordpress/i18n";
 import Range from "../../components/range/Range.js";
 // Extend component
-import { useSelect, useDispatch } from "@wordpress/data";
+import { useSelect } from "@wordpress/data";
 /**
  * Build the Measure controls
  *

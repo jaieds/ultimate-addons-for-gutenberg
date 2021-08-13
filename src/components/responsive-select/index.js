@@ -8,7 +8,6 @@ import {
 	ButtonGroup,
 	Button,
 	SelectControl,
-	Dashicon,
 } from "@wordpress/components";
 import { useDispatch, useSelect } from "@wordpress/data";
 import { useState } from "@wordpress/element";
