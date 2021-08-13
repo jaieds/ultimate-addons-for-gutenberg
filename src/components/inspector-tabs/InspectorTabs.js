@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { __ } from "@wordpress/i18n";
 import { Fragment, cloneElement, Children } from "@wordpress/element";
 import { useState, useRef, useEffect } from "@wordpress/element";
-	LAYOUT = "general",
+const LAYOUT = "general",
 	STYLE = "style",
 	ADVANCE = "advance";
 
