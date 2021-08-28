@@ -2972,7 +2972,7 @@ if ( ! class_exists( 'UAGB_Config' ) ) {
 							'block_id'         => '',
 							'tableBgColor'     => 'linear-gradient(180deg, #18edf3 0%, #01b6bc 100%)',
 						)
-					)
+					),
 				);
 			}
 			return self::$block_attributes;

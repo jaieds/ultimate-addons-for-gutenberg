@@ -5737,7 +5737,6 @@ if ( ! class_exists( 'UAGB_Block_Helper' ) ) {
 
 			$attr = array_merge( $defaults, (array) $attr );
 
-			var_dump($attr);
 			$selectors = array(
 				".wp-block-uagb-price-table" => array(
 					"font-family" => "ProximaNova-Regular, Helvetica, Arial, sans-serif",

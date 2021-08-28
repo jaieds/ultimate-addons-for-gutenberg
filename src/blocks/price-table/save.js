@@ -1,11 +1,10 @@
 import classnames from "classnames";
-import { useBlockProps } from '@wordpress/block-editor';
+import UAGBIcon from "@Controls/UAGBIcon.json";
+import renderSVG from "@Controls/renderIcon";
 
 
 export default function save({className, attributes}) {
-
 	const {block_id} = attributes;
-	console.log("Save !!!!!!!");
 	return (
 		<div className={classnames(
 			className,
@@ -14,7 +13,7 @@ export default function save({className, attributes}) {
 			<div className="wp-block-uagb-price-table">
 				<div className="wp-block-uagb-price-table-header">
 					<div className="wp-block-uagb-price-table-header-icon">
-						<i className="fa fa-rocket" aria-hidden="true"></i>
+						<span>{renderSVG('fa fa-rocket')}</span>
 					</div>
 					<div className="wp-block-uagb-price-table-heading-text">
 						<h4 className="wp-block-uagb-price-table-heading">Personal Edition</h4>
@@ -29,13 +28,17 @@ export default function save({className, attributes}) {
 				<ul className="wp-block-uagb-price-table-feature-list">
 					<li>
 						<div className="wp-block-uagb-price-table-feature-content">
-							<i className="fa fa-angle-right" aria-hidden="true"></i>
+							<span>
+								{renderSVG("fa fa-angle-right")}
+							</span>
 							<span>Free Support 24/7</span>
 						</div>
 					</li>
 					<li>
 						<div className="wp-block-uagb-price-table-feature-content">
-							<i className="fa fa-angle-right" aria-hidden="true"></i>
+							<span>
+								{renderSVG("fa fa-angle-right")}
+							</span>
 							<span>Maintenance Email</span>
 						</div>
 					</li>

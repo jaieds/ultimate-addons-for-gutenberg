@@ -58,6 +58,7 @@ import "./blocks/tabs/block.js"
 import "./blocks/tabs-child/block.js"
 import "./blocks/lottie/block.js"
 import "./blocks/star-rating/block.js"
+import "./blocks/price-table/block.js"
 
 import UAGB_Block_Icons from "@Controls/block-icons"
 
