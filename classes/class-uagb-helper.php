@@ -1308,6 +1308,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				self::$uag_flag = true;
 			}
 
+			var_dump($block_id);
+
 			switch ( $name ) {
 				case 'uagb/review':
 					$css += UAGB_Block_Helper::get_review_css( $blockattr, $block_id );
@@ -1482,6 +1484,10 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				case 'uagb/lottie':
 					$css += UAGB_Block_Helper::get_lottie_css( $blockattr, $block_id );
 					$js  .= UAGB_Block_JS::get_lottie_js( $blockattr, $block_id );
+					break;
+
+				case 'uagb/price-table':
+					$css += UAGB_Block_Helper::get_price_table_css( $blockattr, $block_id );
 					break;
 
 				default:

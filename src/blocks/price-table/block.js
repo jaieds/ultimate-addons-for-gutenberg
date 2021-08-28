@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
 
 
 registerBlockType( "uagb/price-table", {
-	title: "Price Table",
-	description: "Modern Price Table block",
+	title: uagb_blocks_info.blocks["uagb/price-table"]["title"],
+	description: uagb_blocks_info.blocks["uagb/price-table"]["description"],
 	icon: 'smiley',
 	keywords: [
 		__( "price-table",'ultimate-addons-for-gutenberg' ),

@@ -1,11 +1,18 @@
-import {Fragment} from "@wordpress/element";
+import {Fragment, useEffect} from "@wordpress/element";
 import {useBlockProps} from "@wordpress/block-editor";
-import UAGBIcon from "@Controls/UAGBIcon.json"
-import renderSVG from "@Controls/renderIcon"
+import UAGBIcon from "@Controls/UAGBIcon.json";
+import renderSVG from "@Controls/renderIcon";
+
 let svg_icons = Object.keys( UAGBIcon )
 
 
-export default function edit(props) {
+export default function edit({attributes, setAttributes, clientId}) {
+	useEffect(() => {
+		setAttributes({block_id: clientId.substr(0, 8)});
+		const $style = document.createElement( "style" );
+		$style.setAttribute( "id", "uagb-style-price-table-" + clientId.substr( 0, 8 ) );
+		document.head.appendChild( $style );
+	}, []);
 	return (
 		<Fragment {...useBlockProps()}>
 			<div className="wp-block-uagb-price-table">

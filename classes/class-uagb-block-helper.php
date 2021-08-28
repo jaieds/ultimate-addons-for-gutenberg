@@ -5731,5 +5731,40 @@ if ( ! class_exists( 'UAGB_Block_Helper' ) ) {
 
 			return $desktop . $tab_styling_css . $mob_styling_css;
 		}
+
+		public static function get_price_table_css($attr, $id) {
+			$defaults = UAGB_Helper::$block_list['uagb/price-table']['attributes'];
+
+			$attr = array_merge( $defaults, (array) $attr );
+
+			var_dump($attr);
+			$selectors = array(
+				".wp-block-uagb-price-table" => array(
+					"font-family" => "ProximaNova-Regular, Helvetica, Arial, sans-serif",
+					"font-weight" => "400",
+					"line-height" => "1.62",
+					"background-color" => "transparent",
+					"background-image" => "linear-gradient(180deg, #18edf3 0%, #01b6bc 100%)",
+					"box-shadow" => "0px 0px 6px 0px rgb(81 36 179 / 22%)",
+					"border-radius" => "20px",
+					"display" => "inline-block",
+					"vertical-align" => "middle",
+				),
+			);
+
+			$combined_selectors = array(
+				"desktop" => $selectors,
+				'tablet'  => array(),
+				"mobile" => array(),
+			);
+
+
+//			$css = UAGB_Helper::generate_all_css($combined_selectors, '.uagb-block-' . $id);
+//
+//			$desktop = $css['desktop'];
+//
+//			return $desktop;
+			return UAGB_Helper::generate_all_css($combined_selectors, '.uagb-block-' . $id);
+		}
 	}
 }

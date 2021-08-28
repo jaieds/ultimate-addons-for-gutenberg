@@ -1,10 +1,16 @@
+import classnames from "classnames";
 import { useBlockProps } from '@wordpress/block-editor';
 
 
-export default function save(props) {
+export default function save({className, attributes}) {
 
+	const {block_id} = attributes;
+	console.log("Save !!!!!!!");
 	return (
-		<div {...useBlockProps.save()}>
+		<div className={classnames(
+			className,
+			`uagb-block-${block_id}`,
+		)}>
 			<div className="wp-block-uagb-price-table">
 				<div className="wp-block-uagb-price-table-header">
 					<div className="wp-block-uagb-price-table-header-icon">
