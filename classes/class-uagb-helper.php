@@ -148,8 +148,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Parse CSS into correct CSS syntax.
 		 *
-		 * @param array  $selectors The block selectors.
+		 * @param array $selectors The block selectors.
 		 * @param string $id The selector ID.
+		 *
 		 * @since 0.0.1
 		 */
 		public static function generate_css( $selectors, $id ) {
@@ -179,9 +180,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				}
 
 				if ( ! empty( $css ) ) {
-					$styling_css     .= $id;
-					$styling_css     .= $key . '{';
-						$styling_css .= $css . '}';
+					$styling_css .= $id;
+					$styling_css .= $key . '{';
+					$styling_css .= $css . '}';
 				}
 			}
 
@@ -199,8 +200,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		 *
 		 *  get_css_value( VALUE, 'em' );
 		 *
-		 * @param string $value  CSS value.
-		 * @param string $unit  CSS unit.
+		 * @param string $value CSS value.
+		 * @param string $unit CSS unit.
+		 *
 		 * @since 1.13.4
 		 */
 		public static function get_css_value( $value = '', $unit = '' ) {
@@ -257,7 +259,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 			$default = array();
 
-			for ( $i = 1; $i <= 2; $i++ ) {
+			for ( $i = 1; $i <= 2; $i ++ ) {
 				array_push(
 					$default,
 					array(
@@ -290,8 +292,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Get Json Data.
 		 *
-		 * @since 1.8.1
 		 * @return Array
+		 * @since 1.8.1
 		 */
 		public static function backend_load_font_awesome_icons() {
 
@@ -307,14 +309,16 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 			$str             = uagb_filesystem()->get_contents( $json_file );
 			self::$icon_json = json_decode( $str, true );
+
 			return self::$icon_json;
 		}
 
 		/**
 		 * Generate SVG.
 		 *
+		 * @param array $icon Decoded fontawesome json file data.
+		 *
 		 * @since 1.8.1
-		 * @param  array $icon Decoded fontawesome json file data.
 		 */
 		public static function render_svg_html( $icon ) {
 			$icon = str_replace( 'far', '', $icon );
@@ -331,14 +335,16 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				$view = implode( ' ', $view );
 			}
 			?>
-			<svg xmlns="https://www.w3.org/2000/svg" viewBox= "<?php echo esc_html( $view ); ?>"><path d="<?php echo esc_html( $path ); ?>"></path></svg>
+			<svg xmlns="https://www.w3.org/2000/svg" viewBox="<?php echo esc_html( $view ); ?>">
+				<path d="<?php echo esc_html( $path ); ?>"></path>
+			</svg>
 			<?php
 		}
 
 		/**
 		 *  Check MIME Type
 		 *
-		 *  @since 1.20.0
+		 * @since 1.20.0
 		 */
 		public static function get_mime_type() {
 
@@ -351,8 +357,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Returns Query.
 		 *
-		 * @param array  $attributes The block attributes.
+		 * @param array $attributes The block attributes.
 		 * @param string $block_type The Block Type.
+		 *
 		 * @since 1.8.2
 		 */
 		public static function get_query( $attributes, $block_type ) {
@@ -415,11 +422,11 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Get size information for all currently-registered image sizes.
 		 *
-		 * @global $_wp_additional_image_sizes
+		 * @return array $sizes Data for all currently-registered image sizes.
 		 * @uses   get_intermediate_image_sizes()
 		 * @link   https://codex.wordpress.org/Function_Reference/get_intermediate_image_sizes
 		 * @since  1.9.0
-		 * @return array $sizes Data for all currently-registered image sizes.
+		 * @global $_wp_additional_image_sizes
 		 */
 		public static function get_image_sizes() {
 
@@ -662,9 +669,10 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		 *
 		 *  Get HEX color and return RGBA. Default return RGB color.
 		 *
-		 * @param  var   $color      Gets the color value.
-		 * @param  var   $opacity    Gets the opacity value.
-		 * @param  array $is_array Gets an array of the value.
+		 * @param var $color Gets the color value.
+		 * @param var $opacity Gets the opacity value.
+		 * @param array $is_array Gets an array of the value.
+		 *
 		 * @since   1.11.0
 		 */
 		public static function hex2rgba( $color, $opacity = false, $is_array = false ) {
@@ -683,11 +691,11 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 			// Check if color has 6 or 3 characters and get values.
 			if ( strlen( $color ) === 6 ) {
-					$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+				$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
 			} elseif ( strlen( $color ) === 3 ) {
-					$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+				$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
 			} else {
-					return $default;
+				return $default;
 			}
 
 			// Convert hexadec to rgb.
@@ -715,8 +723,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		 * Returns an array of paths for the upload directory
 		 * of the current site.
 		 *
-		 * @since 1.14.0
 		 * @return array
+		 * @since 1.14.0
 		 */
 		public static function get_upload_dir() {
 
@@ -750,8 +758,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Deletes the upload dir.
 		 *
-		 * @since 1.18.0
 		 * @return array
+		 * @since 1.18.0
 		 */
 		public static function delete_upload_dir() {
 
@@ -767,16 +775,18 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			if ( file_exists( $dir_info['path'] . 'index.html' ) ) {
 				// Remove the directory.
 				$wp_filesystem = uagb_filesystem();
+
 				return $wp_filesystem->rmdir( $dir_info['path'], true );
 			}
+
 			return false;
 		}
 
 		/**
 		 * Get UAG upload dir path.
 		 *
-		 * @since 1.23.0
 		 * @return string
+		 * @since 1.23.0
 		 */
 		public static function get_uag_upload_dir_path() {
 
@@ -789,8 +799,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Get UAG upload url path.
 		 *
-		 * @since 1.23.0
 		 * @return string
+		 * @since 1.23.0
 		 */
 		public static function get_uag_upload_url_path() {
 
@@ -803,8 +813,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Delete all files from UAG upload dir.
 		 *
-		 * @since 1.23.0
 		 * @return string
+		 * @since 1.23.0
 		 */
 		public static function delete_all_uag_dir_files() {
 
@@ -831,8 +841,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Checks to see if the site has SSL enabled or not.
 		 *
-		 * @since 1.14.0
 		 * @return bool
+		 * @since 1.14.0
 		 */
 		public static function is_ssl() {
 			if (
@@ -842,6 +852,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			) {
 				return true;
 			}
+
 			return false;
 		}
 
@@ -857,8 +868,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Check if UAG upload folder has write permissions or not.
 		 *
-		 * @since  1.14.9
 		 * @return bool true or false.
+		 * @since  1.14.9
 		 */
 		public static function is_uag_dir_has_write_permissions() {
 
@@ -866,10 +877,12 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 			return uagb_filesystem()->is_writable( $upload_dir['path'] );
 		}
+
 		/**
 		 * Gives the paged Query var.
 		 *
 		 * @param Object $query Query.
+		 *
 		 * @return int $paged Paged Query var.
 		 * @since 1.14.9
 		 */
@@ -898,11 +911,13 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 			return 0;
 		}
+
 		/**
 		 * Builds the base url.
 		 *
 		 * @param string $permalink_structure Premalink Structure.
 		 * @param string $base Base.
+		 *
 		 * @since 1.14.9
 		 */
 		public static function build_base_url( $permalink_structure, $base ) {
@@ -920,7 +935,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				}
 
 				// Add trailing slash when necessary.
-				if ( '/' === substr( $permalink_structure, -1 ) ) {
+				if ( '/' === substr( $permalink_structure, - 1 ) ) {
 					$base = trailingslashit( $base );
 				} else {
 					$base = untrailingslashit( $base );
@@ -935,11 +950,13 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 			return $base;
 		}
+
 		/**
 		 * Returns the Paged Format.
 		 *
 		 * @param string $permalink_structure Premalink Structure.
 		 * @param string $base Base.
+		 *
 		 * @since 1.14.9
 		 */
 		public static function paged_format( $permalink_structure, $base ) {
@@ -947,14 +964,14 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			$page_prefix = empty( $permalink_structure ) ? 'paged' : 'page';
 
 			if ( ! empty( $permalink_structure ) ) {
-				$format  = substr( $base, -1 ) !== '/' ? '/' : '';
+				$format = substr( $base, - 1 ) !== '/' ? '/' : '';
 				$format .= $page_prefix . '/';
 				$format .= '%#%';
-				$format .= substr( $permalink_structure, -1 ) === '/' ? '/' : '';
+				$format .= substr( $permalink_structure, - 1 ) === '/' ? '/' : '';
 			} elseif ( empty( $permalink_structure ) || is_search() ) {
 				$parse_url = wp_parse_url( $base, PHP_URL_QUERY );
 				$format    = empty( $parse_url ) ? '?' : '&';
-				$format   .= $page_prefix . '=%#%';
+				$format    .= $page_prefix . '=%#%';
 			}
 
 			return $format;
@@ -963,12 +980,13 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Get Typography Dynamic CSS.
 		 *
-		 * @param  array  $attr The Attribute array.
-		 * @param  string $slug The field slug.
-		 * @param  string $selector The selector array.
-		 * @param  array  $combined_selectors The combined selector array.
-		 * @since  1.15.0
+		 * @param array $attr The Attribute array.
+		 * @param string $slug The field slug.
+		 * @param string $selector The selector array.
+		 * @param array $combined_selectors The combined selector array.
+		 *
 		 * @return bool|string
+		 * @since  1.15.0
 		 */
 		public static function get_typography_css( $attr, $slug, $selector, $combined_selectors ) {
 
@@ -1039,8 +1057,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Parse CSS into correct CSS syntax.
 		 *
-		 * @param array  $combined_selectors The combined selector array.
+		 * @param array $combined_selectors The combined selector array.
 		 * @param string $id The selector ID.
+		 *
 		 * @since 1.15.0
 		 */
 		public static function generate_all_css( $combined_selectors, $id ) {
@@ -1051,6 +1070,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				'mobile'  => self::generate_css( $combined_selectors['mobile'], $id ),
 			);
 		}
+
 		/**
 		 * Get Post Assets Instance.
 		 */
@@ -1060,8 +1080,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 		/** Generates stylesheet in loop.
 		 *
-		 * @since 1.7.0
 		 * @param object $this_post Post Object.
+		 *
+		 * @since 1.7.0
 		 * @deprecated 1.23.0
 		 * @access public
 		 */
@@ -1095,8 +1116,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Generates stylesheet for reusable blocks.
 		 *
-		 * @since 1.1.0
 		 * @param array $blocks Blocks.
+		 *
+		 * @since 1.1.0
 		 * @deprecated 1.23.0
 		 * @access public
 		 */
@@ -1178,8 +1200,9 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 		/**
 		 * Parse Guten Block.
 		 *
-		 * @since 1.1.0
 		 * @param string $content the content string.
+		 *
+		 * @since 1.1.0
 		 * @deprecated 1.23.0 Use `parse_blocks()` instead
 		 * @access public
 		 */
@@ -1188,6 +1211,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 
 			return parse_blocks( $content );
 		}
+
 		/**
 		 * This is the action where we create dynamic asset files.
 		 * CSS Path : uploads/uag-plugin/uag-style-{post_id}-{timestamp}.css
@@ -1228,6 +1252,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			$this->get_post_assets_instance()->enqueue_blocks_dependency_frontend();
 
 		}
+
 		/**
 		 * Print the Script in footer.
 		 *
@@ -1240,6 +1265,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			$this->get_post_assets_instance()->print_script();
 
 		}
+
 		/**
 		 * Print the Stylesheet in header.
 		 *
@@ -1252,6 +1278,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			$this->get_post_assets_instance()->print_stylesheet();
 
 		}
+
 		/**
 		 * Load the front end Google Fonts.
 		 *
@@ -1264,10 +1291,12 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			$this->get_post_assets_instance()->print_google_fonts();
 
 		}
+
 		/**
 		 * Generates CSS recurrsively.
 		 *
 		 * @param object $block The block object.
+		 *
 		 * @since 0.0.1
 		 * @deprecated 1.23.0
 		 */
@@ -1293,8 +1322,8 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				/**
 				 * Filters the block attributes for CSS and JS generation.
 				 *
-				 * @param array  $block_attributes The block attributes to be filtered.
-				 * @param string $name             The block name.
+				 * @param array $block_attributes The block attributes to be filtered.
+				 * @param string $name The block name.
 				 */
 				$blockattr = apply_filters( 'uagb_block_attributes_for_css_and_js', $block['attrs'], $name );
 				if ( isset( $blockattr['block_id'] ) ) {
@@ -1307,8 +1336,6 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 			if ( strpos( $name, 'uagb/' ) !== false ) {
 				self::$uag_flag = true;
 			}
-
-			var_dump($block_id);
 
 			switch ( $name ) {
 				case 'uagb/review':
@@ -1453,7 +1480,7 @@ if ( ! class_exists( 'UAGB_Helper' ) ) {
 				case 'uagb/table-of-contents':
 					$css += UAGB_Block_Helper::get_table_of_contents_css( $blockattr, $block_id );
 					UAGB_Block_JS::blocks_table_of_contents_gfont( $blockattr );
-					$js                          .= UAGB_Block_JS::get_table_of_contents_js( $blockattr, $block_id );
+					$js                           .= UAGB_Block_JS::get_table_of_contents_js( $blockattr, $block_id );
 					self::$table_of_contents_flag = true;
 					break;
 

@@ -2967,11 +2967,7 @@ if ( ! class_exists( 'UAGB_Config' ) ) {
 						'title'       => __( 'Price Table', 'ultimate-addons-for-gutenberg' ),
 						'description' => __( 'Price Table', 'ultimate-addons-for-gutenberg' ),
 						'default'     => true,
-						'js_assets'   => array(),
-						'attributes'  => array(
-							'block_id'         => '',
-							'tableBgColor'     => 'linear-gradient(180deg, #18edf3 0%, #01b6bc 100%)',
-						)
+						'attributes'  => array(),
 					),
 				);
 			}
@@ -3189,7 +3185,7 @@ if ( ! class_exists( 'UAGB_Config' ) ) {
 					'uagb/wp-search'              => array(
 						'name' => 'wp-search',
 					),
-					'uagb/price-table'              => array(
+					'uagb/price-table'            => array(
 						'name' => 'price-table',
 					),
 				);

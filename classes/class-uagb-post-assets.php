@@ -741,6 +741,10 @@ class UAGB_Post_Assets {
 				$css += UAGB_Block_Helper::get_star_rating_css( $blockattr, $block_id );
 				break;
 
+			case 'uagb/price-table':
+				$css += UAGB_Block_Helper::get_price_table_css( $blockattr, $block_id );
+				break;
+
 			default:
 				// Nothing to do here.
 				break;

@@ -31,13 +31,13 @@
 }
 
 h4.wp-block-uagb-price-table-heading {
-	color: #ffffff!important;
-	font-family: "Montserrat", Sans-serif!important;
-	font-size: 25px!important;
-	font-weight: 700!important;
-	text-transform: uppercase!important;
-	line-height: 2.8em!important;
-	letter-spacing: 0.9px!important;
+	color: #ffffff;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 25px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 2.8em;
+	letter-spacing: 0.9px;
 	margin: 0;
 	padding: 0;
 }
@@ -52,7 +52,7 @@ h4.wp-block-uagb-price-table-heading {
 	color: #ffffff;
 	margin: 0 0 1.6em 0;
 	line-height: 29px;
-	font-size: 18px!important;
+	font-size: 18px;
 }
 
 ul.wp-block-uagb-price-table-feature-list {
@@ -60,8 +60,8 @@ ul.wp-block-uagb-price-table-feature-list {
 	color: #ffffff;
 	text-align: center;
 	list-style-type: none;
-	margin: 0 10px 0 0!important;
-	padding: 0!important;
+	margin: 0 10px 0 0;
+	padding: 0;
 	line-height: 1;
 	font-size: 1em;
 }
@@ -154,14 +154,14 @@ ul.wp-block-uagb-price-table-feature-list li {
 	color: #000000;
 	background-color: #ffffffe6;
 	text-transform: uppercase;
-	text-decoration: none;
+	text-decoration: none !important;
 	letter-spacing: 2.7px;
 	padding: 16px 40px 16px 40px;
 	border-color: #000000;
 	border-style: none;
 	border-radius: 50px 50px 50px 50px;
 	cursor: pointer;
-	transition: box-shadow 0.2s linear!important;
+	transition: box-shadow 0.2s linear !important;
 }
 
 .wp-block-uagb-price-table-button-link:hover {
